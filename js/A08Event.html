@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <h1>JavaScript Event</h1>
+
+    <button name="button 01" onclick="alert('Hello World')">Btn 01</button>
+    <button name="BUTTON 02" onclick="btn02Event(event)">Btn 02</button>
+    <button name="button 03" id="btn03">Btn 03</button>
+    <button name="button 04" id="btn04">Btn 04</button>
+    <button name="button 05" id="btn05">Btn 05</button>
+    <button name="button 06" id="btn06">Btn 06</button>
+  </div>
+
+  <script type="text/javascript">
+    function btn02Event(evt) {
+      // alert('button 02')
+      alert(evt.target.name)
+    }
+
+    // 표준
+    document.getElementById('btn03').addEventListener('click', function (evt) {
+      alert(evt.target.name)
+    });
+
+    /*
+    function addEventListener(eventName, callback) {
+      const event = new Event();
+      callback(event)
+    }
+    */
+
+    document.getElementById('btn04').addEventListener('click', function (evt) {
+      // alert(evt.target.name)
+      // console.log(evt.target)
+      evt.target.style.background = 'orange';
+    })
+
+    // 05
+    function btn05Event(evt) {
+      evt.target.style.background = 'orange';
+    }
+    document.getElementById('btn05').addEventListener('click', btn05Event);
+
+    // 06
+    function btn06Event(evt, color) {
+      evt.target.style.background = color;
+    }
+    document.getElementById('btn06').addEventListener('click', (evt) => btn06Event(evt, 'lightgreen'));
+  </script>
+</body>
+
+</html>
